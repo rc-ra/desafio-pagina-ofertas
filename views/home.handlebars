@@ -1,0 +1,65 @@
+<h1>{{hotel.title}}</h1>
+<div class="informacao">
+	<span class="localizacao">{{hotel.location}}</span>
+	<span class="descricao">{{hotel.description}}</span>
+</div>
+<div class="imagens">
+	{{#each hotel.photos}}
+	{{#unless @index}}
+	<img class="ativo" src="/{{this}}">
+	{{/unless}}
+	{{#if @index}}
+	<img src="/{{this}}">
+	{{/if}}
+	{{/each}}
+	{{!-- <div class="lista">
+		{{#each hotel.photos}}
+		{{#unless @index}}
+		<img class="ativo" src="/{{this}}">
+		{{/unless}}
+		{{#if @index}}
+		<img src="/{{this}}">
+		{{/if}}
+		{{/each}}
+	</div> --}}
+</div>
+<div class="filtros">
+	<h2>Escolha sua melhor opção</h2>
+</div>
+<div class="opcoes">
+	{{#each hotel.options}}
+	<div class="opcao">
+		<div class="destaque">
+			<h3>{{this.title}}</h3>
+			<div class="descricao">{{this.description}}</div>
+		</div>
+		<div class="saidas">
+			<h4>Saídas:</h4>
+			<ul>
+				{{#each this.from}}
+				<li>{{this}}</li>
+				{{/each}}
+			</ul>
+		</div>
+		<div class="diarias">
+			<div class="diaria">
+				<strong>{{this.daily}}</strong> Diárias
+			</div>
+			<div class="pessoas">
+				<strong>1</strong> Pessoa
+			</div>
+		</div>
+		<div class="escolher">
+			<div class="tarifa {{taxclass @index}}">{{this.tax}}</div>
+			<div class="valor">
+				Por apenas:
+				<span>R$ <strong>{{this.price}}</strong></span>
+				+ taxas em até 10x
+			</div>
+			<a href="#{{this.id}}" class="selecionar">Quero ir</a>
+		</div>
+	</div>
+	{{/each}}
+</div>
+
+{{!-- <pre>{{_hotel}}</pre> --}}

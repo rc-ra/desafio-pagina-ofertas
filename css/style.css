@@ -1,0 +1,183 @@
+body {
+	color: #333;
+	font: 14px Arial, sans-serif;
+	letter-spacing: 0.5px;
+}
+.container {
+	width: 970px;
+	margin: 0 auto;
+}
+h1 {
+	margin-bottom: 0;
+}
+.localizacao {
+	display: block;
+	color: #666;
+	margin-bottom: 5px;
+}
+.informacao > .descricao {
+	display: block;
+	color: #999;
+	margin-bottom: 70px;
+}
+.imagens {
+	margin-bottom: 60px;
+}
+img {
+	max-width: 100%;
+}
+.imagens > img:not(.ativo) {
+	display: none;
+}
+.lista img {
+	display: inline-block;
+	width: 90px;
+	height: 60px;
+	cursor: pointer;
+}
+.lista img:not(:first-child) {
+	margin-left: 5px;
+}
+.lista img:hover {
+	opacity: 0.8;
+}
+.lista .ativo {
+	opacity: 0.2;
+}
+.lista .ativo:hover {
+	opacity: 0.5;
+}
+
+.filtros {
+	border-bottom: 1px solid #DDD;
+	margin-bottom: 30px;
+}
+
+h2 {
+	margin-bottom: 5px;
+}
+
+
+.opcao {
+	border: 1px solid #CCC;
+	border-radius: 2px
+}
+.opcao:first-child {
+	border: 1px solid orange;
+}
+.opcao:not(:last-child) {
+	margin-bottom: 20px;
+}
+
+.opcao > div {
+	display: inline-block;
+	height: 190px;
+	vertical-align: top;
+}
+.opcao > div:not(:first-child) {
+	border-left: 1px solid #DDD;
+}
+
+.destaque {
+	width: 42%;
+}
+.destaque h3,
+.destaque .descricao {
+	padding: 0 10px;
+}
+.destaque h3 {
+	margin: 20px 0 20px;
+}
+.destaque .descricao {
+	color: #666;
+}
+
+.saidas,
+.diarias {
+	width: 17%;
+}
+
+.saidas h4 {
+	padding: 0 10px 0 20px;
+	margin: 20px 0;
+}
+
+.saidas ul {
+	margin: 0;
+	padding: 0 10px 0 20px;
+	list-style-type: none;
+}
+.saidas li {
+	line-height: 25px;
+	color: #666;
+}
+
+.diarias .diaria,
+.diarias .pessoas {
+	padding-top: 20px;
+	text-align: center;
+	font-size: 11px;
+	margin-bottom: 20px;
+	position: relative;
+}
+
+.diaria strong,
+.pessoas strong {
+	display: block;
+	font-size: 22px;
+}
+
+.diarias .pessoas:before {
+	position: absolute;
+	content: "";
+	top: 0;
+	width: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 0;
+	border-top: 1px solid #999;
+}
+
+.escolher {
+	width: 22%;
+	text-align: center;
+}
+
+.escolher .tarifa {
+	color: orange;
+	padding-top: 20px;
+	padding-bottom: 25px;
+	font-size: 12px;
+}
+.escolher .gratis {
+	color: lightgreen;
+}
+
+.escolher .valor {
+	text-align: center;
+	width: 100%;
+	font-size: 15px;
+	color: #888;
+	margin-bottom: 15px;
+}
+.escolher .valor span {
+	display: block;
+	color: #333;
+	font-size: 20px;
+	margin: 2px 0;
+}
+.escolher .valor strong {
+	font-size: 30px;
+}
+
+.escolher a {
+	background-color: orange;
+	color: #FFF;
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px;
+	width: 140px;
+	text-transform: uppercase;
+	border-radius: 3px;
+	font-size: 13px;
+}

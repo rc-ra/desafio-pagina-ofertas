@@ -4,7 +4,7 @@
   "description": "Desafio Pagina Ofertas",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=true node .",
+    "start": "NODE_ENV=production node .",
     "test": " "
   },
   "repository": {
@@ -20,7 +20,11 @@
   "dependencies": {
     "express": "^4.13.4",
     "express-handlebars": "^3.0.0",
+    "iconv-lite": "^0.4.13",
     "open": "0.0.5",
     "rmdir": "^1.2.0"
+  },
+  "devDependencies": {
+    "loadtest": "^1.3.6"
   }
 }
