@@ -1,0 +1,26 @@
+{
+  "name": "ofertas",
+  "version": "1.0.0",
+  "description": "Desafio Pagina Ofertas",
+  "private": true,
+  "scripts": {
+    "start": "NODE_ENV=true node .",
+    "test": " "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rc-ra/desafio-pagina-ofertas.git"
+  },
+  "author": "rafa.cesar@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rc-ra/desafio-pagina-ofertas/issues"
+  },
+  "homepage": "https://github.com/rc-ra/desafio-pagina-ofertas#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "open": "0.0.5",
+    "rmdir": "^1.2.0"
+  }
+}
