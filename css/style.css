@@ -51,10 +51,31 @@ img {
 .filtros {
 	border-bottom: 1px solid #DDD;
 	margin-bottom: 30px;
+	padding-bottom: 5px;
+}
+.filtros:after {
+	display: block;
+	width: 100%;
+	content: "";
+	clear: both;
 }
 
 h2 {
-	margin-bottom: 5px;
+	margin: 0;
+	float: left;
+}
+
+.escolhas {
+	float: right;
+}
+
+.escolhas:not(.ativo) {
+	display: none;
+}
+
+.escolhas > div {
+	display: inline-block;
+	margin-left: 35px;
 }
 
 
@@ -92,22 +113,22 @@ h2 {
 	color: #666;
 }
 
-.saidas,
-.diarias {
+.opcoes .saidas,
+.opcoes .diarias {
 	width: 17%;
 }
 
-.saidas h4 {
+.opcoes .saidas h4 {
 	padding: 0 10px 0 20px;
 	margin: 20px 0;
 }
 
-.saidas ul {
+.opcoes .saidas ul {
 	margin: 0;
 	padding: 0 10px 0 20px;
 	list-style-type: none;
 }
-.saidas li {
+.opcoes .saidas li {
 	line-height: 25px;
 	color: #666;
 }

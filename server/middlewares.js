@@ -6,11 +6,18 @@ var //utils = require('./utils'),
 
 module.exports = {
 	checkCache: function(req, res, next) {
-		var cacheValidator = req.app.get('cacheValidator');
+		var cacheValidator = req.app.get('cacheValidator'),
+			now = ((new Date()).getTime() + '').substr(0, 8);
+
+		if(cacheValidator === now) {
+			req.hasCache = true;
+			return next();
+		}
+
 		fs.stat('offer.txt', function(err, stat) {
-			if(!cacheValidator || cacheValidator !== stat.mtime) {
-				req.app.set('cacheValidator', stat.mtime);
-				req.app.set('hasCache', false);
+			var time = ((new Date(stat.mtime)).getTime() + '').substr(0, 8);
+			if(!cacheValidator || cacheValidator !== time) {
+				req.app.set('cacheValidator', time);
 				req.hasCache = false;
 			}
 			else {

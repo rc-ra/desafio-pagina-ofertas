@@ -3,18 +3,28 @@ var express = require('express'),
 	app = express(),
 	middlewares = require('./middlewares'),
 	utils = require('./utils'),
-	exphbs = require('express-handlebars');
+	exphbs = require('express-handlebars'),
+	compression = require('compression');
 
 app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
-
+app.use(compression());
 
 app.disable('etag');
 
-app.use('/images', express.static('images'));
-app.use('/js', express.static('js'));
-app.use('/css', express.static('css'));
+app.use('/images', express.static('images', {
+	etag: false,
+	maxage: '24h'
+}));
+app.use('/js', express.static('js', {
+	etag: false,
+	maxage: '24h'
+}));
+app.use('/css', express.static('css', {
+	etag: false,
+	maxage: '24h'
+}));
 
 app.param('id', function(req, res, next, id) {
 	var parsedId = parseInt(id, 10);
@@ -55,6 +65,7 @@ app.get('/:id?', [middlewares.checkCache, middlewares.getDB], function(req, res,
 			});
 			res.render('home', {
 				hotel: hotel,
+				assetFile: process.env.NODE_ENV === 'production'?'.min':'',
 				helpers: {
 					taxclass: function(i) {
 						return (i%2)?'gratis':'';
@@ -77,7 +88,7 @@ app.get('/:id?', [middlewares.checkCache, middlewares.getDB], function(req, res,
 		if(req.hasCache) {
 			utils.getCache(app, id, function(err, cache) {
 				if(err) {
-					renderCache()
+					renderCache();
 				}
 				else {
 					res.send(cache);
@@ -89,7 +100,8 @@ app.get('/:id?', [middlewares.checkCache, middlewares.getDB], function(req, res,
 			renderCache();
 	}
 	else {
-		console.log('arquivo - ' + req.params);
+		// console.log('arquivo - ' + JSON.stringify(req.params));
+		// console.log(req.url);
 		next();
 	}
 });

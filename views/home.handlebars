@@ -12,23 +12,29 @@
 	<img src="/{{this}}">
 	{{/if}}
 	{{/each}}
-	{{!-- <div class="lista">
-		{{#each hotel.photos}}
-		{{#unless @index}}
-		<img class="ativo" src="/{{this}}">
-		{{/unless}}
-		{{#if @index}}
-		<img src="/{{this}}">
-		{{/if}}
-		{{/each}}
-	</div> --}}
 </div>
 <div class="filtros">
 	<h2>Escolha sua melhor opção</h2>
+	<div class="escolhas">
+		<div class="saidas">
+			<label for="saidas">Saídas</label>
+			<select id="saidas">
+				<option value="">Escolha</option>
+			</select>
+		</div>
+		<div class="diarias">
+			<label for="diarias">
+				Nº de diárias
+			</label>
+			<select id="diarias">
+				<option value="">Escolha</option>
+			</select>
+		</div>
+	</div>
 </div>
 <div class="opcoes">
 	{{#each hotel.options}}
-	<div class="opcao">
+	<div class="opcao" id="opcao-{{@index}}">
 		<div class="destaque">
 			<h3>{{this.title}}</h3>
 			<div class="descricao">{{this.description}}</div>
