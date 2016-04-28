@@ -1,8 +1,4 @@
 'use strict';
-var fs = require('fs'),
-	rmdir = require('rmdir');
-
-
 
 module.exports = {
 	getCache: function(app, id, callback) {

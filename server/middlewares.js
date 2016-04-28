@@ -1,6 +1,5 @@
 'use strict';
-var //utils = require('./utils'),
-	fs = require('fs'),
+var fs = require('fs'),
 	iconvlite = require('iconv-lite');
 
 
