@@ -2,8 +2,13 @@
 var fs = require('fs'),
 	middlewares = require('../server/middlewares'),
 	iconvlite = require('iconv-lite'),
-	assert = require('assert');
+	assert = require('assert'),
+	mtime;
 
+before(function() {
+	var stat = fs.statSync('offer.txt');
+	mtime = ((new Date(stat.mtime)).getTime() + '').substr(0, 8);
+});
 describe('Middlewares', function() {
 	describe('Cache', function() {
 		it('should return no cache', function(done) {
@@ -15,7 +20,7 @@ describe('Middlewares', function() {
 					},
 					set: function(str, value) {
 						assert.strictEqual(str, 'cacheValidator');
-						assert.strictEqual(value, '14617179');
+						assert.strictEqual(value, mtime);
 					}
 				}
 			};
@@ -31,7 +36,7 @@ describe('Middlewares', function() {
 				app: {
 					get: function(str) {
 						assert.strictEqual(str, 'cacheValidator');
-						return '14617179';
+						return mtime;
 					}
 				}
 			};
