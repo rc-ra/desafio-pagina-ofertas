@@ -6,9 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=production node .",
     "dev": "node .",
-    "test-back": "mocha",
-    "test-front": "node test-front.js",
-    "test": "npm run test-back && npm run test-front",
+    "test": "mocha test/middlewares.js test/utils.js test/front.js",
     "requests": "loadtest -n 10000 -c 1000 --rps 1000 http://localhost:8080/"
   },
   "repository": {
